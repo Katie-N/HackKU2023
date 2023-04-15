@@ -8,6 +8,10 @@
   width: 100%;
 }
 
+#plantSelection option {
+  text-transform: capitalize;
+}
+
 .trash {
     transition: 0.5s;
 }

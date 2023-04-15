@@ -1,13 +1,20 @@
-let plantOptions = document.getElementById("addPlant");
+let plantOptions = document.querySelector('input[name="plantSelection"]');
 plantOptions.addEventListener("input", addPlants);
 
-let plantList = document.getElementById("plantList");
+let plantSelection = document.getElementById("plantSelection");
+plants.forEach(plant => {
+  let newPlantOption = document.createElement("option");
+  newPlantOption.text = plant.name;
+  plantSelection.appendChild(newPlantOption);
+});
 let selectedPlants = [];
+let plantList = document.getElementById("plantList");
 
 function addPlants(e) {
   // If the selected plant is an option
   let selectedPlant = plants.find(plant => plant.name == plantOptions.value);
-  if (selectedPlant)) {
+  console.log(selectedPlant);
+  if (selectedPlant) {
     console.log("It's in the list");
     let newPlant = document.createElement("div");
 
@@ -34,8 +41,8 @@ function addPlants(e) {
 
     let plantForArray = {
       ...selectedPlant,
-      quantity: 1,
     }
+    plantForArray.quantity = plantForArray.quantity + 1 || 1;
 
     selectedPlants.push(plantForArray);
   } else {

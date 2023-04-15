@@ -23,22 +23,16 @@
         <input class="input__field" id="hardiness" type="number" placeholder=" " />
         <span class="input__label">Hardiness</span>
       </label>
-      <!-- <input type="number"  id="width" placeholder="Squares Wide">
-      <input type="number" id="length" placeholder="Squares Tall"> -->
-      <!-- <input type="number"  id="hardiness" placeholder="Hardiness Zone"> -->
     </div>
     <div id="gardenPlot">
     </div>
     <div id="plantsColumn">
       <h1>Add Plant to Garden</h1>
-      <input class="input__field" type="text" name="plantList" list="fruitsAndVeggies" autocomplete="off" />
-      <datalist id="plantList">
-        <option>Apple</option>
-        <option>Banana</option>
-        <option>Orange</option>
-        <option>Pineapple</option>
-        <option>Kiwi</option>
+      <input class="input__field" type="text" name="plantSelection" list="plantSelection" autocomplete="off" />
+      <datalist id="plantSelection">
       </datalist>
+      <div id="plantList">        
+      </div>
     </div>
   </div>
   <script type="text/javascript" src="./scripts/script.js"></script>
