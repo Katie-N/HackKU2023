@@ -1,0 +1,25 @@
+body {
+  background-color: #FFF4C8;
+}
+
+h1, p {
+  font-family: "Prata", serif;
+  color: #737373;
+}
+
+#gardenPlot {
+  display: grid;
+  grid-gap: 5px;
+  width: 100%;
+  margin: auto;
+}
+
+#gardenPlot div {
+  border: solid #737373 2px;
+  aspect-ratio: 1;
+}
+
+#mainContainer {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
