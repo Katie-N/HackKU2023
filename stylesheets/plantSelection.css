@@ -1,0 +1,17 @@
+#plantList div {
+  display: grid;
+  grid-template-columns: 25% 25% 25%;
+  justify-content: space-between;
+}
+
+#plantList img {
+  width: 100%;
+}
+
+.trash {
+    transition: 0.5s;
+}
+
+.trash:hover {
+  transform: scale(115%);
+}
