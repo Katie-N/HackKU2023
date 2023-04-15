@@ -2,10 +2,6 @@
   box-sizing: border-box;
 }
 
-/* body {
-  background-color: #FFF4C8;
-} */
-
 h1, p {
   font-family: "Prata", serif;
   color: #737373;
@@ -33,6 +29,12 @@ h1, p {
   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='23' ry='23' stroke='%23737373' stroke-width='4' stroke-dasharray='6' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
   border-radius: 23px;
   margin: 0 20px;
+}
+
+#configOptionsColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 :root {
