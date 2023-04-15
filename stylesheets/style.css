@@ -1,6 +1,10 @@
-body {
-  background-color: #FFF4C8;
+* {
+  box-sizing: border-box;
 }
+
+/* body {
+  background-color: #FFF4C8;
+} */
 
 h1, p {
   font-family: "Prata", serif;
@@ -22,4 +26,70 @@ h1, p {
 #mainContainer {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
+}
+
+#plantsColumn, #configOptionsColumn {
+  text-align: center;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='23' ry='23' stroke='%23737373' stroke-width='4' stroke-dasharray='6' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+  border-radius: 23px;
+  margin: 0 20px;
+}
+
+:root {
+  --color-light: #FFF4C8;
+  --color-dark: #737373;
+  --color-signal: #737373;
+
+  --color-background: var(--color-light);
+  --color-text: var(--color-dark);
+  --color-accent: var(--color-signal);
+
+  --size-bezel: .5rem;
+  --size-radius: 4px;
+
+  line-height: 1.4;
+
+  font-family: 'Prata', serif;
+  font-size: calc(.6rem + .4vw);
+  color: var(--color-text);
+  background: var(--color-background);
+  padding: 0 calc(var(--size-bezel) * 3);
+}
+
+.input {
+	 position: relative;
+}
+
+ .input__label {
+	 position: absolute;
+	 top: 0;
+	 padding: calc(var(--size-bezel) * 0.75) calc(var(--size-bezel) * .5);
+	 margin: calc(var(--size-bezel) * 0.75 + 3px) calc(var(--size-bezel) * .5);
+	 white-space: nowrap;
+	 transform: translate(0, 0);
+	 transform-origin: 0 0;
+	 background: var(--color-background);
+	 transition: transform 120ms ease-in;
+	 font-weight: bold;
+	 line-height: 1.2;
+}
+
+ .input__field {
+	 box-sizing: border-box;
+	 display: block;
+   margin: auto;
+	 width: 70%;
+	 border: 2px solid var(--color-text);
+	 padding: calc(var(--size-bezel) * 1.5) var(--size-bezel);
+	 background: transparent;
+	 border-radius: var(--size-radius);
+}
+
+ .input__field:focus + .input__label, .input__field:not(:placeholder-shown) + .input__label {
+	 transform: translate(0.25rem, -65%) scale(0.8);
+	 color: var(--color-accent);
+}
+
+.input__field:focus-visible {
+  outline: none;
 }
