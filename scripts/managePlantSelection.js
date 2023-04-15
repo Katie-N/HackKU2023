@@ -17,6 +17,7 @@ function addPlants(e) {
   if (selectedPlant) {
     console.log("It's in the list");
     let newPlant = document.createElement("div");
+    newPlant.id = selectedPlant.name + "Container";
 
     let plantImage = document.createElement("img");
     plantImage.src = selectedPlant.img.src;
@@ -32,6 +33,7 @@ function addPlants(e) {
     deletePlant.src = "./Art Assets/Icons/icons8-trash.svg";
     deletePlant.alt = "delete " + selectedPlant.name;
     deletePlant.classList.add("trash");
+    deletePlant.addEventListener("click", deletePlantFromPlan.bind(this, newPlant))
 
     newPlant.appendChild(plantImage);
     newPlant.appendChild(plantQuantity);
@@ -51,5 +53,14 @@ function addPlants(e) {
 }
 
 function updatePlantQuantity(plant) {
-  console.log(plant.value);
+  // selectedPlants[plant].quantity = plant.value?
+  console.log('new quantity', plant.value);
+}
+
+function deletePlantFromPlan(plant) {
+  // selectedPlants[]
+  console.log("Need to delete", plant);
+  let plantToDelete = selectedPlants.find(p => p.name + "Container" == plant.id);
+  selectedPlants.splice(selectedPlants.indexOf(plantToDelete), 1);
+  plantList.removeChild(plant);
 }
