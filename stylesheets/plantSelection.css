@@ -1,11 +1,15 @@
 #plantList div {
   display: grid;
-  grid-template-columns: 25% 25% 25%;
+  grid-template-columns: 25% 50% 25%;
   justify-content: space-between;
 }
 
 #plantList img {
   width: 100%;
+}
+
+#plantSelection option {
+  text-transform: capitalize;
 }
 
 .trash {
