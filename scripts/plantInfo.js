@@ -55,14 +55,22 @@ let plants = [
   	enemies: ["cabbage", "legume"],
   	monthToPlant: [1,1],
   	monthToHarvest: [2,2],
+    img: {
+      src: artPath + "/marigold.png",
+      alt: "a pixelized marigold",
+    },
   },
   {
-  name: "cabbage",
+    name: "cabbage",
   	hardinessZone: [1,10],
   	friends: ["potato", "basil", "onion"],
   	enemies: ["marigold", "cucumber", "tomato",],
   	monthToPlant: [1,1],
   	monthToHarvest: [2,3],
+    img: {
+      src: artPath + "/cabbage.png",
+      alt: "a pixelized cabbage",
+    },
   },
   {
   	name: "onion",
