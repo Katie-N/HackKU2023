@@ -9,19 +9,39 @@
 </head>
 <body>
   <div id="mainContainer">
-    <div>
-      <input type="number" id="length" placeholder="Squares Tall">
-      <input type="number"  id="width" placeholder="Squares Wide">
-      <input type="number"  id="width" placeholder="Hardiness Zone">
+    <div id="configOptionsColumn">
+      <label class="input">
+        <input class="input__field" id="width" type="number" placeholder=" " />
+        <span class="input__label">Width</span>
+      </label>
+      <label class="input">
+        <input class="input__field" id="length" type="number" placeholder=" " />
+        <span class="input__label">Length</span>
+      </label>
+      <label class="input">
+        <input class="input__field" id="hardiness" type="number" placeholder=" " />
+        <span class="input__label">Hardiness</span>
+      </label>
+      <!-- <input type="number"  id="width" placeholder="Squares Wide">
+      <input type="number" id="length" placeholder="Squares Tall"> -->
+      <!-- <input type="number"  id="hardiness" placeholder="Hardiness Zone"> -->
     </div>
     <div id="gardenPlot">
     </div>
-    <div>
+    <div id="plantsColumn">
       <h1>Add Plant to Garden</h1>
-      <select id="addPlant">
+      <input class="input__field" type="text" name="fruitsAndVeggies" list="fruitsAndVeggies" autocomplete="off" />
+      <datalist id="fruitsAndVeggies">
+        <option>Apple</option>
+        <option>Banana</option>
+        <option>Orange</option>
+        <option>Pineapple</option>
+        <option>Kiwi</option>
+      </datalist>
+      <!-- <select id="addPlant">
         <option value="tomato">Tomato</option>
         <option value="carrot">Carrot</option>
-      </select>
+      </select> -->
     </div>
   </div>
   <script type="text/javascript" src="./scripts/script.js"></script>
