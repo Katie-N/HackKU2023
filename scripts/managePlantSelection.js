@@ -1,12 +1,27 @@
 let plantOptions = document.querySelector('input[name="plantSelection"]');
 plantOptions.addEventListener("input", addPlants);
 
-let plantSelection = document.getElementById("plantSelection");
-plants.forEach(plant => {
-  let newPlantOption = document.createElement("option");
-  newPlantOption.text = plant.name;
-  plantSelection.appendChild(newPlantOption);
-});
+let hardinessInput = document.getElementById("hardiness");
+let hardinessLevel;
+
+hardinessInput.addEventListener("input", renderOptions);
+
+function renderOptions() {
+  hardinessLevel = hardinessInput.value;
+  removeAllChildNodes(plantSelection);
+  plants.forEach(plant => {
+    let newPlantOption = document.createElement("option");
+    console.log("level", hardinessLevel);
+    console.log("min", plant.hardinessZone[0]);
+    if(plant.hardinessZone[0] > hardinessLevel || plant.hardinessZone[1] < hardinessLevel) {
+      // If the hardiness level of the user is outside the range of the plant, then disable the plant option
+      newPlantOption.disabled = true;
+    }
+    newPlantOption.text = plant.name;
+    plantSelection.appendChild(newPlantOption);
+  });
+}
+
 let selectedPlants = [];
 let plantList = document.getElementById("plantList");
 
@@ -15,6 +30,7 @@ function addPlants(e) {
   let selectedPlant = plants.find(plant => plant.name == plantOptions.value);
   console.log(selectedPlant);
   if (selectedPlant) {
+    // Create and DOM elements
     console.log("It's in the list");
     let newPlant = document.createElement("div");
     newPlant.id = selectedPlant.name + "Container";
