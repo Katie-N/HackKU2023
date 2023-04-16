@@ -1,43 +1,21 @@
 let plantOptions = document.querySelector('input[name="plantSelection"]');
 plantOptions.addEventListener("input", addPlants);
 
-let hardinessInput = document.getElementById("hardiness");
-let hardinessLevel;
-
-hardinessInput.addEventListener("input", renderOptions);
-hardinessInput.addEventListener("input", deleteIncompatibleHardiness);
-
-function renderOptions() {
-  hardinessLevel = hardinessInput.value;
-  removeAllChildNodes(plantSelection);
-  plants.forEach(plant => {
-    let newPlantOption = document.createElement("option");
-    if(plant.hardinessZone[0] > hardinessLevel || plant.hardinessZone[1] < hardinessLevel) {
-      // If the hardiness level of the user is outside the range of the plant, then disable the plant option
-      newPlantOption.disabled = true;
-    }
-    newPlantOption.text = plant.name;
-    plantSelection.appendChild(newPlantOption);
-  });
-}
-
-function deleteIncompatibleHardiness() {
-  selectedPlants.forEach((plant, i) => {
-    if(plant.hardinessZone[0] > hardinessLevel || plant.hardinessZone[1] < hardinessLevel) {
-      // If the new hardiness level is outside the range of a selected plant, then remove the plant from the selection.
-      deletePlantFromPlan(plant);
-    }
-  });
-}
-
+let plantSelection = document.getElementById("plantSelection");
+plants.forEach(plant => {
+  let newPlantOption = document.createElement("option");
+  newPlantOption.text = plant.name;
+  plantSelection.appendChild(newPlantOption);
+});
 let selectedPlants = [];
 let plantList = document.getElementById("plantList");
 
 function addPlants(e) {
   // If the selected plant is an option
   let selectedPlant = plants.find(plant => plant.name == plantOptions.value);
+  console.log(selectedPlant);
   if (selectedPlant) {
-    // Create and DOM elements
+    console.log("It's in the list");
     let newPlant = document.createElement("div");
     newPlant.id = selectedPlant.name + "Container";
 
@@ -69,6 +47,8 @@ function addPlants(e) {
     plantForArray.quantity = plantForArray.quantity + 1 || 1;
 
     selectedPlants.push(plantForArray);
+  } else {
+    console.log("it's not an option so don't do anything.")
   }
 }
 
