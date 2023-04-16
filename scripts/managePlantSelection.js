@@ -1,5 +1,41 @@
 let plantOptions = document.querySelector('input[name="plantSelection"]');
 plantOptions.addEventListener("input", addPlants);
+plantOptions.addEventListener("input", showRelationships);
+
+let relationshipsDiv;
+function showRelationships() {
+  if (relationshipsDiv) {
+    removeAllChildNodes(relationshipsDiv);
+  }
+
+  let listAbove = document.getElementById("plantList")
+  relationshipsDiv = document.createElement("div")
+
+  relationshipsDiv.id = "relationshipsDiv";
+
+  let friendDiv = document.createElement("div");
+  let enemyDiv = document.createElement("div");
+
+  // console.log(selectedPlants.slice(-1));
+  selectedPlants.slice(-1)[0].friends.forEach((friendName, i) => {
+    let newFriend = document.createElement("img");
+    let friendReference = plants.find(p => p.name == friendName);
+    newFriend.src = friendReference.img.src;
+    newFriend.alt = friendReference.img.alt;
+    // newFriend addeventlistner for click. Or onclick=...
+
+    friendDiv.appendChild(newFriend);
+  });
+
+  // After doing everything to the div
+  relationshipsDiv.appendChild(friendDiv);
+  relationshipsDiv.appendChild(enemyDiv);
+  insertAfter(relationshipsDiv, listAbove);
+}
+
+function insertAfter(newNode, existingNode) {
+    existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
+}
 
 let hardinessInput = document.getElementById("hardiness");
 let hardinessLevel;
@@ -7,6 +43,7 @@ let hardinessLevel;
 hardinessInput.addEventListener("input", renderOptions);
 hardinessInput.addEventListener("input", deleteIncompatibleHardiness);
 
+renderOptions();
 function renderOptions() {
   hardinessLevel = hardinessInput.value;
   removeAllChildNodes(plantSelection);
