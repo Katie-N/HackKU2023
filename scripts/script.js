@@ -1,9 +1,13 @@
+let arrayOfSquares = []
+
 function createPlot(numSquares) {
    let gardenPlot = document.getElementById("gardenPlot")
    removeAllChildNodes(gardenPlot);
+   arrayOfSquares = [];
    for (i = 0; i < numSquares; i++) {
-     let square = document.createElement("div");
+     square = document.createElement("div");
      document.getElementById("gardenPlot").appendChild(square);
+     arrayOfSquares.push(square)
    }
 }
 
