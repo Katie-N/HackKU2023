@@ -93,3 +93,52 @@ h1, p {
 .input__field:focus-visible {
   outline: none;
 }
+
+#plotPlants {
+	 display: inline-block;
+	 padding: 0.75rem 1.25rem;
+	 border-radius: var(--size-radius);
+	 color: var(--color-accent);
+   margin: 25px;
+   font-family: "Prata", serif;
+   font-weight: bold;
+	 font-size: 1rem;
+	 letter-spacing: 0.15rem;
+	 transition: all 0.3s;
+	 position: relative;
+	 overflow: hidden;
+	 z-index: 1;
+}
+ #plotPlants:after {
+	 content: '';
+	 position: absolute;
+	 bottom: 0;
+	 left: 0;
+	 width: 100%;
+	 height: 100%;
+	 background-color: white;
+	 border-radius: var(--size-radius);
+	 z-index: -2;
+}
+ #plotPlants:before {
+	 content: '';
+	 position: absolute;
+	 bottom: 0;
+	 left: 0;
+	 width: 0%;
+	 height: 100%;
+	 background-color: var(--color-accent);
+	 transition: all 0.3s;
+	 border-radius: var(--size-radius);
+	 z-index: -1;
+}
+ #plotPlants:hover {
+	 color: #fff;
+}
+ #plotPlants:hover:before {
+	 width: 100%;
+}
+
+.squareImg {
+  width: 100%;
+}
