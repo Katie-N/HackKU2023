@@ -8,20 +8,31 @@ console.log("Length", length);
 // Right now, the plants aren't sorted. Eventually we want them to be though.
 let sortedPlantList = selectedPlants;
 
+function sizeOfPlantList(plantListToTake) {
+  let size = 0;
+  sortedPlantList.forEach(plant => {
+    size += plant.quantity;
+  });
+  return size;
+}
+
+// If there are more plants selected than garden space, add a row until there's enough space.
+function resizePlot() {
+  while (arrayOfSquares.length < sizeOfPlantList(sortedPlantList)) {
+    // Add a row
+    length++;
+    createPlot(length * width);
+    lengthInput.value = length;
+  }
+}
+
 function plotThePlants() {
   console.log("Plotting time");
   // Remove all content from plot
   arrayOfSquares.forEach((square) => {
     removeAllChildNodes(square);
   });
-  // If there are more plants selected than garden space, add a row until there's enough space.
-  while (arrayOfSquares.length < sortedPlantList.length) {
-    // Add a row
-    length++;
-    createPlot(length * width);
-    lengthInput.value = length;
-  }
-  console.log(arrayOfSquares);
+  resizePlot();
 
   // array
   sortedPlantList.forEach((plant, i) => {
