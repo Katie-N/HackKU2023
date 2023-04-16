@@ -23,13 +23,12 @@ let lengthInput = document.getElementById("length")
 let width = 1;
 let length = 1;
 
-createPlot(width*length);
+createPlot(width * length);
 
 lengthInput.addEventListener("input", updateLength);
 widthInput.addEventListener("input", updateWidth);
 
 function updateLength() {
-  console.log("Updating Length");
   let rows = "";
   length = lengthInput.value;
   for (let i = 0; i < length; i++) {
@@ -40,7 +39,6 @@ document.getElementById("gardenPlot").style.gridTemplateRows = rows;
 }
 
 function updateWidth() {
-  console.log("Updating Width");
   let columns = "";
   width = widthInput.value;
   for (let i = 0; i < width; i++) {
