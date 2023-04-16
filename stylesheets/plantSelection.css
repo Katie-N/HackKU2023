@@ -19,12 +19,3 @@
 .trash:hover {
   transform: scale(115%);
 }
-
-#relationshipsDiv {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-#relationshipsDiv > div > img {
-  max-width: 100%;
-}
