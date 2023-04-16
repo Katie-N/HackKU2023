@@ -91,8 +91,9 @@ let plantList = document.getElementById("plantList");
 function addPlants(e) {
   // If the selected plant is an option
   let selectedPlant = plants.find(plant => plant.name == plantOptions.value);
+  console.log(selectedPlant);
   if (selectedPlant) {
-    // Create and DOM elements
+    console.log("It's in the list");
     let newPlant = document.createElement("div");
     newPlant.id = selectedPlant.name + "Container";
 
@@ -125,6 +126,8 @@ function addPlants(e) {
     plantForArray.quantity = plantForArray.quantity + 1 || 1;
 
     selectedPlants.push(plantForArray);
+  } else {
+    console.log("it's not an option so don't do anything.")
   }
 }
 
